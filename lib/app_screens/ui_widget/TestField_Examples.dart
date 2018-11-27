@@ -6,9 +6,10 @@ class TextFiledCustom extends StatefulWidget {
   final Function filedValidation;
 
   final TextEditingController textEditingController ;
-
+  String label;
+  String hint;
   TextFiledCustom(
-      {this.textInputType, this.filedValidation, this.textEditingController});
+      {this.textInputType, this.filedValidation, this.textEditingController,this.label,this.hint});
 
   @override
   State<StatefulWidget> createState() {
@@ -16,7 +17,7 @@ class TextFiledCustom extends StatefulWidget {
 
     return TextFiledCustomState(textInputType: textInputType,
         filedValidation: filedValidation,
-        textEditingController: textEditingController);
+        textEditingController: textEditingController,label: this.label,hint: this.hint);
   }
 
 
@@ -28,8 +29,11 @@ class TextFiledCustomState extends State<TextFiledCustom> {
   final Function filedValidation;
   final TextEditingController textEditingController ;
 
+  String label;
+  String hint;
+
   TextFiledCustomState(
-      {this.textInputType, this.filedValidation, this.textEditingController});
+      {this.textInputType, this.filedValidation, this.textEditingController,this.label,this.hint});
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +42,8 @@ class TextFiledCustomState extends State<TextFiledCustom> {
       margin: EdgeInsets.all(20.0),
       child: new TextFormField(
         validator: filedValidation, decoration: InputDecoration(
-          labelText: "Principale",
-          hintText: "Enter Priincipale",
+          labelText: label,
+          hintText: hint,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5.0)
           )
